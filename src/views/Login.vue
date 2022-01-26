@@ -86,7 +86,7 @@ export default {
   background-image: url("../assets/loginPageBackground.jpeg") ;
   background-size: cover;
   position: absolute;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 
  .emptyBox{
@@ -122,4 +122,10 @@ label.el-checkbox.rememberme {
   margin-right: 5px;
 }
 
+.title{
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  margin: 25px;
+}
 </style>
