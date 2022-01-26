@@ -1,50 +1,37 @@
 <template>
   <el-container>
     <el-header>
-      <div id="app">
-        <div id="nav">
-          <router-link to="/">Home</router-link>
-          <router-link to="/about">About</router-link>
-          <router-link to="/Login">Login</router-link>
-        </div>
-        <router-view/>
+      <div class="buttonBox">
+        <router-link to="/">
+          <el-button type="primary" plain>Home</el-button>
+        </router-link>
       </div>
+      <div class="buttonBox">
+        <router-link to="/about">
+          <el-button type="primary" plain>关于</el-button>
+        </router-link>
+      </div>
+      <div class="buttonBox">
+        <router-link to="/Login">
+          <el-button type="primary" plain>登陆</el-button>
+        </router-link>
+      </div>
+      <router-view/>
     </el-header>
   </el-container>
-
-
 </template>
 
 <style>
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.el-header{
   text-align: center;
-  color: #409EFF;
-
+  line-height: 60px;
+  background-color: rgb(160, 207, 255);
 }
 
-#nav {
-  width: 100%;
-  height: 40px;
-  margin-top: 0;
-  background-color: rgb(179, 216, 255);
-}
-
-#nav a {
-  background-color: aquamarine;
+.buttonBox{
   float: right;
-  width: 50px;
-  height: 40px;
-  margin-right: 10px;
-  font-weight: bold;
-  color: #2c3e50;
-
+  width: 80px;
+  margin-right: 5px;
 }
 
-#nav a.router-link-exact-active {
-  color: #409EFF;
-}
 </style>
