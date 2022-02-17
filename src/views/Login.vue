@@ -82,7 +82,8 @@ export default {
 
 .login-container {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 60px);
+
   background-image: url("../assets/loginPageBackground.jpeg") ;
   background-size: cover;
   position: absolute;
