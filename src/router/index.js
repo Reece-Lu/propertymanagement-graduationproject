@@ -10,23 +10,28 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children:[
+      {
+        path:'/reportandrepair',
+        name: 'ReportAndRepair',
+        component: () => import( '../views/adminViews/ReportAndRepair.vue')
+      }
+    ]
   },
   {
     path: '/login',
     name: 'Login',
     component: Login,
-    beforeEnter(to, from, next) {
-      const { isLogin } = localStorage;
-      isLogin ? next({ name: 'Home'}):  next();
-    }
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import( '../views/About.vue')
-  // }
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import( '../views/About.vue')
+  }
 ]
+
+
 
 const router = new VueRouter({
   routes
