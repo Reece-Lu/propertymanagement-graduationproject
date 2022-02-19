@@ -24,13 +24,13 @@
 </template>
 
 <script>
-
+import router from "@/router";
 export default {
   name: 'Login',
  methods:{
    handleLogin(){
      localStorage.setItem('isLogin','1');
-     this.$router.push('/');
+     router.push({path:'/'})
    }
  }
 
