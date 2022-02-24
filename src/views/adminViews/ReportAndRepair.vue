@@ -1,6 +1,7 @@
 <template>
 <div class="reportandrepair">
     <el-table
+        :data="tabledata"
         ref="multipleTable"
         tooltip-effect="dark"
         style="width: 100%"
@@ -60,6 +61,16 @@
           :total="total"
           >
       </el-pagination>
+
+      <el-pagination
+          background
+          :page-sizes="[5,10,15,20]"
+          :page-size="10"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+      >
+      </el-pagination>
+
     </div>
 
 
@@ -69,7 +80,13 @@
 
 <script>
 export default {
-  name: "ReportAndRepair"
+  name: "ReportAndRepair",
+  created() {
+    //请求分页查询数据
+    fetch("http://localhost:9090/user/page?pageNum=1&pageSize=2").then(res=>res.json()).then(res=>{
+      console.log(res)
+    })
+  }
 }
 </script>
 
