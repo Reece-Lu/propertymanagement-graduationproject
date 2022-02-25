@@ -19,6 +19,7 @@ export default {
   name: "Header",
   methods:{
     logout(){
+      this.$router.push('/login')
       localStorage.removeItem('isLogin');
     }
   }
