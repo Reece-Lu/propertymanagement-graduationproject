@@ -13,7 +13,9 @@
         </el-aside>
 <!--        主体部分-->
         <el-main>
-          <router-view/>
+          <div style="height: calc(100vh - 120px)">
+            <router-view/>
+          </div>
         </el-main>
       </el-container>
 
@@ -39,7 +41,7 @@ export default {
 </script>
 
 <style>
-.el-header, .el-footer {
+.el-header {
   background-color: #B3C0D1;
   color: #333;
   text-align: center;
@@ -57,24 +59,13 @@ export default {
   background-color: #E9EEF3;
   color: #333;
   text-align: center;
-  line-height: 160px;
-}
-
-body > .el-container {
-  margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+  line-height: 60px;
 }
 
 a {
   text-decoration: none;
 }
+
+
 
 </style>
