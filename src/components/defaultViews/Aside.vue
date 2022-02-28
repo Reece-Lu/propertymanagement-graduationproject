@@ -1,10 +1,13 @@
 <template>
+
   <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
       background-color="#545c64"
       text-color="#fff"
-      active-text-color="#ffd04b">
+      active-text-color="#ffd04b"
+      style="height: 100%"
+  >
     <el-menu-item index="1" disabled>
 <!--      icon设置语句 <i class="el-icon-menu"></i>-->
       <span slot="title">小区广播</span>
