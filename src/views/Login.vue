@@ -4,19 +4,33 @@
         <div class="emptyBox"></div>
         <el-form status-icon label-position="left"
                  label-width="0px"
-                 class="demo-ruleForm login-page">
+                 class="demo-ruleForm login-page"
+                 :model="user"
+                 :rules="rules"
+                 ref="userForm">
           <h3 class="title">后疫情时代智慧物业管理系统</h3>
           <h3 class="title">物业登陆</h3>
-          <el-form-item prop="username">
-            <el-input placeholder="用户名"></el-input>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input placeholder="密码"
+          <el-form-item prop="userName">
+            <el-input
+                size="medium"
+                style="margin: 10px 0"
+                prefix-icon="el-icon-user"
+                v-model="user.userName"
             ></el-input>
           </el-form-item>
+          <el-form-item prop="password">
+            <el-input
+                size="medium"
+                style="margin: 10px 0"
+                prefix-icon="el-icon-lock"
+                show-password
+                v-model="user.password"
+            ></el-input>
+          </el-form-item>
+
           <el-checkbox>记住密码</el-checkbox>
           <el-form-item style="width:100%;">
-            <el-button type="primary" style="width:100%;" @click="handleLogin">登录</el-button>
+            <el-button type="primary"  autocomplete="off" style="width:100%;" @click="handleLogin">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -24,16 +38,47 @@
 </template>
 
 <script>
-import router from "@/router";
+
+import {login} from "@/api/Login";
+
 export default {
   name: 'Login',
- methods:{
-   handleLogin(){
-     localStorage.setItem('isLogin','1');
-     router.push({path:'/'})
+  data(){
+    return{
+      user: {
+        userName:'',
+        password:''
+      },
+      rules: {
+        userName: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 3, max: 10, message: "长度在 3 到 5 个字符", trigger: "blur" },
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" },
+          {
+            min: 1,
+            max: 20,
+            message: "长度在 1 到 20 个字符",
+            trigger: "blur",
+          },
+        ],
+      }
+    }
+  },
+ methods: {
+   handleLogin() {
+     login(this.user).then(res=>{
+       console.log(res)
+       localStorage.setItem('isLogin','1');
+       this.$router.push('/home')
+       this.$store.commit('changeTest',this.user.userName)
+       console.log(this.$store.state.test)
+     }).catch(()=>{
+       this.$message.error("登陆失败")
+     })
    }
  }
-
 }
 </script>
 

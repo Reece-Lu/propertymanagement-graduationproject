@@ -53,6 +53,8 @@
 </template>
 
 <script>
+//import request from "@/utils/request";
+
 export default {
   name: "ReportAndRepair",
   data(){
@@ -80,11 +82,7 @@ export default {
       this.load()
     },
     load(){
-      fetch("http://localhost:9090/user/page?pageNum="+this.pageNum+"&pageSize="+this.pageSize+"&username="+this.username).then(res=>res.json()).then(res=>{
-        console.log(res)
-        this.tableData=res.data
-        this.total=res.total
-      })
+
     }
   }
 }
