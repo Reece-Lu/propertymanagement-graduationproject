@@ -24,17 +24,17 @@
       <span slot="title">隔离助手</span>
     </el-menu-item>
     <el-menu-item index="6"  disabled>
-      <span slot="title">宠物档案</span>
+      <span slot="title">宠物寄养</span>
     </el-menu-item>
     <el-menu-item index="7"  disabled>
-      <span slot="title">小区挪车</span>
+      <span slot="title">车位管理</span>
     </el-menu-item>
     <el-menu-item index="8"  disabled>
       <span slot="title">装修登记</span>
     </el-menu-item>
-    <el-menu-item index="9"  disabled>
-      <span slot="title">代驾</span>
-    </el-menu-item>
+<!--    <el-menu-item index="9"  disabled>-->
+<!--      <span slot="title">代驾</span>-->
+<!--    </el-menu-item>-->
   </el-menu>
 </template>
 
