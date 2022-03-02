@@ -1,5 +1,5 @@
 <template>
-
+<!--侧边栏，作为Home页面的组件-->
   <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
@@ -35,9 +35,6 @@
     <el-menu-item index="8"  disabled>
       <span slot="title">装修登记</span>
     </el-menu-item>
-<!--    <el-menu-item index="9"  disabled>-->
-<!--      <span slot="title">代驾</span>-->
-<!--    </el-menu-item>-->
   </el-menu>
 </template>
 

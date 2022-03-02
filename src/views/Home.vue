@@ -1,17 +1,17 @@
 <template>
   <div class="home">
     <el-container>
-<!--      网页头部-->
+<!-- 网页头部 -->
       <el-header>
         <Header/>
       </el-header>
-<!--头部以下-->
+<!-- 头部以下 -->
       <el-container>
-<!--        侧边栏部分-->
+<!-- 侧边栏部分 -->
         <el-aside width="200px">
           <Aside/>
         </el-aside>
-<!--        主体部分-->
+<!-- 主体部分 -->
         <el-main>
           <div style="height: calc(100vh - 120px)">
             <router-view/>
