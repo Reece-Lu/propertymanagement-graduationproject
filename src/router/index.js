@@ -11,6 +11,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
+    //使用父子路由实现Home页的Header和Aside锁定在子页面中
     children:[
       {
         path:'/reportandrepair',

@@ -1,6 +1,5 @@
 <template>
       <div class="login-container">
-
         <div class="emptyBox"></div>
         <el-form status-icon label-position="left"
                  label-width="0px"
@@ -27,7 +26,6 @@
                 v-model="user.password"
             ></el-input>
           </el-form-item>
-
           <el-checkbox>记住密码</el-checkbox>
           <el-form-item style="width:100%;">
             <el-button type="primary"  autocomplete="off" style="width:100%;" @click="handleLogin">登录</el-button>
@@ -49,6 +47,7 @@ export default {
         userName:'',
         password:''
       },
+      //数据过滤，要求用户输入合法的数据
       rules: {
         userName: [
           { required: true, message: "请输入用户名", trigger: "blur" },
@@ -70,10 +69,9 @@ export default {
    handleLogin() {
      login(this.user).then(res=>{
        console.log(res)
+       //释放路由守卫
        localStorage.setItem('isLogin','1');
        this.$router.push('/home')
-       this.$store.commit('changeTest',this.user.userName)
-       console.log(this.$store.state.test)
      }).catch(()=>{
        this.$message.error("登陆失败")
      })
