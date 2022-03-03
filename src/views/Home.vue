@@ -35,7 +35,7 @@ export default {
   components: {
     // HelloWorld
     Header,Aside
-  },
+  }
 
 }
 </script>
