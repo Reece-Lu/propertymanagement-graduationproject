@@ -7,29 +7,29 @@
                  :model="user"
                  :rules="rules"
                  ref="userForm">
-          <h3 class="title">后疫情时代智慧物业管理系统</h3>
-          <h3 class="title">物业登陆</h3>
-          <el-form-item prop="userName">
-            <el-input
-                size="medium"
-                style="margin: 10px 0"
-                prefix-icon="el-icon-user"
-                v-model="user.userName"
-            ></el-input>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input
-                size="medium"
-                style="margin: 10px 0"
-                prefix-icon="el-icon-lock"
-                show-password
-                v-model="user.password"
-            ></el-input>
-          </el-form-item>
-          <el-checkbox>记住密码</el-checkbox>
-          <el-form-item style="width:100%;">
-            <el-button type="primary"  autocomplete="off" style="width:100%;" @click="handleLogin">登录</el-button>
-          </el-form-item>
+            <h1 class="title">后疫情时代智慧物业管理系统</h1>
+            <el-form-item prop="userName">
+              <el-input
+                  size="medium"
+                  style="margin: auto 0"
+                  prefix-icon="el-icon-user"
+                  v-model="user.userName"
+              ></el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+              <el-input
+                  size="medium"
+                  style="margin: auto 0"
+                  prefix-icon="el-icon-lock"
+                  show-password
+                  v-model="user.password"
+              ></el-input>
+            </el-form-item>
+          <el-radio v-model="roleChoice" label="1" style="margin: 1%" border size="mini">业主</el-radio>
+          <el-radio v-model="roleChoice" label="2" style="margin: 1%" border size="mini">物业管理</el-radio>
+            <el-form-item style="width:100%;">
+              <el-button type="primary"  autocomplete="off" style="width:100%; margin-top: 3%" @click="handleLogin">登录</el-button>
+            </el-form-item>
         </el-form>
       </div>
 
@@ -37,12 +37,13 @@
 
 <script>
 
-import {login} from "@/api/Login";
+import { loginForPropertyManagement, loginForProprietor} from "@/api/Login";
 
 export default {
   name: 'Login',
   data(){
     return{
+      roleChoice:'1',
       user: {
         userName:'',
         password:''
@@ -67,14 +68,28 @@ export default {
   },
  methods: {
    handleLogin() {
-     login(this.user).then(res=>{
-       console.log(res)
-       //释放路由守卫
-       localStorage.setItem('isLogin','1');
-       this.$router.push('/home')
-     }).catch(()=>{
-       this.$message.error("登陆失败")
-     })
+     //roleChoice为2，物业身份登陆页
+     if(this.roleChoice==='2'){
+       loginForPropertyManagement(this.user).then(res=>{
+         console.log(res)
+         //释放路由守卫
+         localStorage.setItem('isLogin','1');
+         this.$router.push('/home')
+       }).catch(()=>{
+         this.$message.error("登陆失败")
+       })
+     }else{
+       //roleChoice为1，业主身份登陆页
+       loginForProprietor(this.user).then(res=>{
+         console.log(res)
+         //释放路由守卫
+         localStorage.setItem('isLogin','1');
+         this.$router.push('/about')
+       }).catch(()=>{
+         this.$message.error("登陆失败")
+       })
+     }
+
    }
  }
 }
@@ -85,7 +100,6 @@ export default {
 .login-container {
   width: 100%;
   height: 100%;
-
   background-image: url("../assets/loginPageBackground.jpeg") ;
   background-size: cover;
   position: absolute;
@@ -93,7 +107,7 @@ export default {
 }
 
  .emptyBox{
-   height: 150px;
+   height: 20%;
    width: 100%;
  }
 
@@ -101,8 +115,8 @@ export default {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   margin: 0 auto;
-  height: 450px;
-  width: 500px;
+  height: 45%;
+  width: 55%;
   padding: 35px 35px 15px;
   background: #fff;
   border: 1px solid #eaeaea;
@@ -111,9 +125,9 @@ export default {
 
 
 .title{
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   line-height: 20px;
-  margin: 25px;
+  margin: 30px;
 }
 </style>
