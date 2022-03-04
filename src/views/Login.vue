@@ -71,20 +71,22 @@ export default {
      //roleChoice为2，物业身份登陆页
      if(this.roleChoice==='2'){
        loginForPropertyManagement(this.user).then(res=>{
-         console.log(res)
+         // console.log(res)
          //释放路由守卫
          localStorage.setItem('isLogin','1');
-         this.$router.push('/home')
+         localStorage.setItem('user',JSON.stringify(res));
+         this.$router.push('/propertymanagementhome')
        }).catch(()=>{
          this.$message.error("登陆失败")
        })
      }else{
        //roleChoice为1，业主身份登陆页
        loginForProprietor(this.user).then(res=>{
-         console.log(res)
+         // console.log(res)
          //释放路由守卫
          localStorage.setItem('isLogin','1');
-         this.$router.push('/about')
+         localStorage.setItem('user',JSON.stringify(res));
+         this.$router.push('/proprietormine')
        }).catch(()=>{
          this.$message.error("登陆失败")
        })

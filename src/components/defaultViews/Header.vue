@@ -22,6 +22,7 @@ export default {
       //返回登陆页，释放localStorage中的isLogin数据，激活路由守卫
       this.$router.push('/login')
       localStorage.removeItem('isLogin');
+      localStorage.removeItem('user');
     }
   }
 }
