@@ -14,3 +14,11 @@
     <h2 style="text-align: center">Guided by Gao Yu, Liu Caihong</h2>
   </div>
 </template>
+
+<script>
+export default {
+  beforeCreate() {
+    localStorage.removeItem('isLogin');
+  }
+}
+</script>

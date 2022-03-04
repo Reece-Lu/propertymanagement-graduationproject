@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home'
+import Home from '@/views/PropertyManagementHome'
 import Login from "@/views/Login";
 
 
@@ -8,8 +8,8 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
+    path: '/propertymanagementhome',
+    name: 'propertymanagementhome',
     component: Home,
     //使用父子路由实现Home页的Header和Aside锁定在子页面中
     children:[
@@ -26,9 +26,29 @@ const routes = [
     component: Login,
   },
   {
-    path: '/about',
+    path: '',
     name: 'About',
     component: () => import( '../views/About.vue')
+  },
+  {
+    path: '/proprietorhome',
+    name: 'ProprietorHome',
+    component: () => import( '../views/ProprietorHome'),
+    children: [
+      {
+        path:'/proprietorbroadcast',
+        name: 'proprietorbroadcast',
+        component: () => import( '../views/proprietorViews/ProprietorBroadcast.vue')
+      }, {
+        path: '/proprietorcommunity',
+        name: 'proprietorcommunity',
+        component: () => import( '../views/proprietorViews/ProprietorCommunity.vue'),
+      },{
+        path:'/proprietormine',
+        name: 'proprietormine',
+        component: () => import( '../views/proprietorViews/ProprietorMine.vue')
+      }
+    ]
   }
 ]
 
