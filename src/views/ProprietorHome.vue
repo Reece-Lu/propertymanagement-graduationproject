@@ -3,7 +3,7 @@
     <div style="background: rgb(244, 244, 245);; height: 100vh">
       <router-view/>
     </div>
-    <van-tabbar fixed v-model="active">
+    <van-tabbar fixed v-model="active" safe-area-inset-bottom>
       <router-link to="/proprietorbroadcast" style="width: 33%">
         <van-tabbar-item icon="home-o" name="broadcast">小区广播</van-tabbar-item>
       </router-link>

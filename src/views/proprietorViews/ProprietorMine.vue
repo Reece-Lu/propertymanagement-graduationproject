@@ -30,9 +30,30 @@
   </van-cell-group>
 
   <van-cell-group inset title="设置">
-    <van-cell is-link title="修改个人信息信息" @click="editInfoShow = true" />
+    <van-cell  title="修改个人信息信息" is-link @click="showFormUp"/>
     <van-cell title="登出" is-link @click="logout"/>
   </van-cell-group>
+
+<!--编辑页面-->
+  <van-popup v-model="editInfoShow" round position="bottom" closeable :style="{ height: '80%' }">
+    <van-cell-group inset title="设置" @click='changeNameShow=true'>
+      <van-cell  title="修改姓名" is-link @click="showFormUp">{{this.proprietor.name}}</van-cell>
+    </van-cell-group>
+  </van-popup>
+
+
+  <van-dialog v-model="changeNameShow" title="更改姓名" :showConfirmButton=false>
+    <van-cell-group>
+      <van-form @submit="submitName">
+        <van-field  v-model="editInfoDTO.value" label="姓名" placeholder="请输入姓名" />
+        <div style="margin: 16px;">
+          <van-button round block type="info" native-type="submit">确认</van-button>
+        </div>
+      </van-form>
+    </van-cell-group>
+  </van-dialog>
+
+
 
 </div>
 </template>
@@ -46,27 +67,47 @@ export default {
   data(){
     return{
       editInfoShow:false,
+      changeNameShow:false,
       proprietor:[{
-        id:0
+        name:''
       }],
       id:'0',
-
+      editInfoDTO:{
+        attributes:'',
+        value:''
+      },
+      newName:'',
     }
   },
   created() {
-    this.proprietor=JSON.parse(localStorage.getItem('user'))
-
-    getProprietorInfo(this.proprietor.id).then(res=>{
-      console.log(res)
-      this.proprietor=res
-    })
-
+    //加载"我的"页面数据信息
+    this.load();
   },
   methods:{
     logout(){
       this.$router.push('/login')
       localStorage.removeItem('isLogin');
       localStorage.removeItem('user');
+    },
+    load(){
+      //读取localstorage中的用户id
+      this.proprietor=JSON.parse(localStorage.getItem('user'))
+      //获取最新的业主信息
+      getProprietorInfo(this.proprietor.id).then(res=>{
+        console.log(res)
+        this.proprietor=res
+      })
+    },
+    showFormUp(){
+      this.editInfoShow=true;
+    },
+    //更改姓名
+    submitName(){
+      console.log(this.editInfoDTO)
+      this.editInfoDTO.attributes='name'
+
+      this.load()
+      this.changeNameShow=false
     }
   }
 }
