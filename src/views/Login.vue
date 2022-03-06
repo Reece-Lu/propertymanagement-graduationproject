@@ -87,6 +87,7 @@ export default {
          localStorage.setItem('isLogin','1');
          localStorage.setItem('user',JSON.stringify(res));
          this.$router.push('/proprietormine')
+         this.$notify({ type: 'success', message: '登陆成功，Welcome！' });
        }).catch(()=>{
          this.$message.error("登陆失败")
        })

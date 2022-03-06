@@ -49,6 +49,11 @@ const routes = [
         component: () => import( '../views/proprietorViews/ProprietorMine.vue')
       }
     ]
+  },{
+    path: '/proprietorhome/createfixingreport',
+    name: 'createfixingreport',
+    component: () => import( '../views/proprietorViews/ReportRepair/CreateFixingReport.vue')
+
   }
 ]
 
