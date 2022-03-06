@@ -147,7 +147,7 @@ export default {
       if (this.loading) {
         return;
       }
-      this.$confirm('确定要提交表单吗？')
+      this.$confirm('退出修改？')
           .then(() => {
             this.loading = true;
             this.timer = setTimeout(() => {
@@ -158,7 +158,9 @@ export default {
               }, 400);
             }, 500);
           })
-          .catch(() => {});
+          .catch(() => {
+            this.drawer = false;
+          });
     },
     //抽屉组件"取消"按钮处理函数
     cancelForm() {
