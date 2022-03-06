@@ -1,6 +1,7 @@
 <template>
 <div>
-  <div id="emptyBox" style="height: 5vh"></div>
+  <van-nav-bar title=""/>
+  <div id="emptyBox" style="height: 2vh"></div>
 
   <van-cell-group>
     <van-cell>
@@ -196,6 +197,7 @@ export default {
   },
   created() {
     //加载"我的"页面数据信息
+
     this.load();
   },
   methods:{

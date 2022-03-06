@@ -9,3 +9,7 @@ export function reportRepairSearch(data){
 export function editStatus(data){
     return request.post('/pms/reportrepairsearch/editstatus', data)
 }
+/*修改维修数据接口*/
+export function createReport(data){
+    return request.post('/pms/reportrepairsearch/createreport', data)
+}
