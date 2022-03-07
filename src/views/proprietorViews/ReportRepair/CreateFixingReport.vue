@@ -2,7 +2,7 @@
 <div style=" background-color: rgb(244, 244, 245); height: 100vh;">
 
   <van-nav-bar
-      title="创建维修工单"
+      title="报修申请"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -37,6 +37,7 @@ export default {
   data(){
     return{
       proprietor:[{
+        id:'',
         name:'',
         title:'',
         phone:'',
@@ -48,6 +49,7 @@ export default {
       }],
       reportForm:{
         reporter:'',
+        reporterId:'',
         reporterPhone:'',
         reportTime:'',
         repairType:'',
@@ -66,8 +68,10 @@ export default {
   created() {
     //默认值赋值，并展示
     this.proprietor=JSON.parse(localStorage.getItem('user'))
+    console.log("localStorage:"+this.proprietor)
     this.reportForm.reporter=this.proprietor.name
     this.reportForm.reporterPhone=this.proprietor.phone
+    this.reportForm.reporterId=this.proprietor.id
     this.setNowTimes()
     this.reportForm.reportTime=this.nowDate+" "+this.nowTime
   },
@@ -94,8 +98,8 @@ export default {
       this.showRepairTypePicker = false;
     },
     //提交表单
-    onSubmit(values) {
-      createReport(values).then(()=>{
+    onSubmit() {
+      createReport(this.reportForm).then(()=>{
         this.$notify({ type: 'success', message: '提交成功' });
         this.timer = setTimeout(()=>{   //设置延迟执行
           this.$router.push('/proprietorcommunity')

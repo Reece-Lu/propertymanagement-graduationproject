@@ -53,7 +53,10 @@ const routes = [
     path: '/proprietorhome/createfixingreport',
     name: 'createfixingreport',
     component: () => import( '../views/proprietorViews/ReportRepair/CreateFixingReport.vue')
-
+  },{
+    path: '/proprietorhome/checkfixingreport',
+    name: 'checkfixingreport',
+    component: () => import( '../views/proprietorViews/ReportRepair/CheckFixingReport.vue')
   }
 ]
 

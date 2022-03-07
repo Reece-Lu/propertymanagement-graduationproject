@@ -20,7 +20,7 @@
         <el-table-column type="selection" width="39" ></el-table-column>
         <el-table-column  fixed prop="id" label="ID" align="center" width="40"></el-table-column>
         <el-table-column  fixed prop="reporter" label="报修人" align="center" width="100"></el-table-column>
-        <el-table-column prop="reporterPhone" label="报修人电话" align="center" width="100"></el-table-column>
+        <el-table-column prop="reporterPhone" label="报修人电话" align="center" width="120"></el-table-column>
         <el-table-column prop="reportTime" label="报修时间" align="center" width="150"></el-table-column>
         <el-table-column prop="repairType" label="报修类型" align="center" width="70"></el-table-column>
         <el-table-column prop="repairLocation" label="地点" align="center" width="200"></el-table-column>
