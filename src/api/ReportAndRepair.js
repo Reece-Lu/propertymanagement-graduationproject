@@ -13,3 +13,8 @@ export function editStatus(data){
 export function createReport(data){
     return request.post('/pms/reportrepairsearch/createreport', data)
 }
+
+/*查询历史报修接口*/
+export function checkFixingReportList(data){
+    return request.post('/pms/reportrepairsearch/checkfixingreport', data)
+}
