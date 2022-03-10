@@ -10,28 +10,36 @@
   >
     <el-menu-item index="1" disabled>
 <!--      icon设置语句 <i class="el-icon-menu"></i>-->
-      <span slot="title">小区广播</span>
-    </el-menu-item>
-    <el-menu-item index="2" disabled>
-      <span slot="title">业主档案</span>
+      <span slot="title"><i class="el-icon-message-solid"></i> 小区广播</span>
     </el-menu-item>
     <router-link to="/reportandrepair">
-      <el-menu-item index="3" >
-        <span slot="title">报修维修</span>
+      <el-menu-item index="2" >
+        <span slot="title"><span class="iconfont icon-icongongju"></span>报修维修</span>
       </el-menu-item>
     </router-link>
+    <el-submenu index="3">
+      <template slot="title"><span class="iconfont icon-bingdu"></span>隔离助手</template>
+      <el-menu-item-group>
+        <router-link to="/propertyexpressdelivery">
+          <el-menu-item index="3-1" >快递帮取</el-menu-item>
+        </router-link>
+        <el-menu-item index="3-2" disabled>隔离后勤</el-menu-item>
+      </el-menu-item-group>
+    </el-submenu>
     <el-menu-item index="4"  disabled>
-      <span slot="title">隔离助手</span>
+      <span slot="title"><span class="iconfont icon-xiedaichongwu"></span>宠物寄养</span>
     </el-menu-item>
+
     <el-menu-item index="5"  disabled>
-      <span slot="title">宠物寄养</span>
+      <span slot="title"><span class="iconfont icon-cheliang"></span>车位管理</span>
     </el-menu-item>
     <el-menu-item index="6"  disabled>
-      <span slot="title">车位管理</span>
+      <span slot="title"><i class="el-icon-present"></i> 装修登记</span>
     </el-menu-item>
-    <el-menu-item index="7"  disabled>
-      <span slot="title">装修登记</span>
+    <el-menu-item index="7" disabled>
+      <span slot="title"><span class="iconfont icon-record-full"></span>业主档案</span>
     </el-menu-item>
+
   </el-menu>
 </template>
 

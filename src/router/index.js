@@ -17,7 +17,12 @@ const routes = [
         path:'/reportandrepair',
         name: 'ReportAndRepair',
         component: () => import( '../views/adminViews/ReportAndRepair.vue')
-      }
+      },
+      {
+        path:'/propertyexpressdelivery',
+        name: 'PropertyExpressDelivery',
+        component: () => import( '../views/adminViews/PropertyExpressDelivery.vue')
+      },
     ]
   },
   {
