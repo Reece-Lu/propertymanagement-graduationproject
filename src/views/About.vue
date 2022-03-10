@@ -12,12 +12,13 @@
     </p>
     <h1 style="text-align: center">Developed by Lu Yuwen</h1>
     <h2 style="text-align: center">Guided by Gao Yu, Liu Caihong</h2>
+    <h1 style="text-align: center">万丈高楼平地起</h1>
   </div>
 </template>
 
 <script>
 export default {
-  beforeCreate() {
+  created() {
     localStorage.removeItem('isLogin');
   }
 }

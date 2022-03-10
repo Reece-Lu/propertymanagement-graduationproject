@@ -8,6 +8,7 @@ import request from "@/utils/request";
 import axios from 'axios'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import './assets/icon/iconfont.css'
 
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
