@@ -22,6 +22,7 @@
     </div>
   </van-form>
 
+  <!--选择维修属性弹窗-->
   <van-popup v-model="showRepairTypePicker" position="bottom">
     <van-picker show-toolbar :columns="columns" @confirm="onConfirm" @cancel="showRepairTypePicker = false"/>
   </van-popup>

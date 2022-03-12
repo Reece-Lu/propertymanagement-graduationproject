@@ -7,6 +7,10 @@
       <van-cell title="报修记录" is-link to="/proprietorhome/checkfixingreport"/>
     </van-cell-group>
 
+    <van-cell-group inset title="隔离助手">
+      <van-cell title="快递代领" is-link to="/proprietorhome/createExpressDelivery"/>
+    </van-cell-group>
+
   </div>
 
 </template>
