@@ -77,7 +77,7 @@ export default {
     this.proprietorPhone=this.proprietor.phone
     this.setNowTimes()
     this.reportForm.createDate=this.nowDate+" "+this.nowTime
-    this.reportForm.status="待领取"
+    this.reportForm.status="待派发取件任务"
   },
   methods:{
     onClickLeft(){
@@ -106,9 +106,9 @@ export default {
         this.timer = setTimeout(()=>{   //设置延迟执行
           this.$router.push('/proprietorcommunity')
         },1000);
-
       })
     },
+
   }
 }
 </script>
