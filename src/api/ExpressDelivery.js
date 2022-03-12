@@ -4,3 +4,8 @@ import request from "@/utils/request";
 export function getExpressDeliveryInfoForProperty(data){
     return request.post('pms/expressdelivery/propertysearch', data)
 }
+
+
+export function entrustExpressDeliveryForProprietor(data){
+    return request.post('pms/expressdelivery/proprietorentrustdelivery', data)
+}

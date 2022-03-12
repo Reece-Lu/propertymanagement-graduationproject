@@ -18,14 +18,18 @@
         size="mini"
     >
       <el-table-column type="selection" width="39" ></el-table-column>
-      <el-table-column prop="id" label="ID" align="center" width="40"></el-table-column>
+      <el-table-column prop="id" label="ID" align="center" width="60"></el-table-column>
       <el-table-column prop="name" label="委托人" align="center" width="100"></el-table-column>
       <el-table-column prop="title" label="称呼" align="center" width="80"></el-table-column>
       <el-table-column prop="phone" label="联系方式" align="center" width="150"></el-table-column>
       <el-table-column prop="deliveryCode" label="取件码" align="center" width="100"></el-table-column>
       <el-table-column prop="deliveryType" label="包裹种类" align="center" width="150"></el-table-column>
-      <el-table-column prop="deliveryLocation" label="包裹位置" align="center" width="150"></el-table-column>
+      <el-table-column prop="deliveryLocation" label="包裹位置" align="center" width="120"></el-table-column>
+      <el-table-column prop="createDate" label="创建时间" align="center" width="150"></el-table-column>
+      <el-table-column prop="status" label="状态" align="center" width="100"></el-table-column>
       <el-table-column prop="serviceman" label="领取人" align="center" width="100"></el-table-column>
+
+
       <el-table-column label="操作" align="center" width="120">
         <template slot-scope="scope" >
           <el-button
@@ -71,7 +75,9 @@ export default {
         deliveryCode:"",
         deliveryType:"",
         deliveryLocation:"",
-        serviceman:""
+        serviceman:"",
+        createDate:"",
+        status:""
       }],
       searchForm:{
         name:"",

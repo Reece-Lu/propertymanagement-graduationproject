@@ -57,11 +57,15 @@ const routes = [
   },{
     path: '/proprietorhome/createfixingreport',
     name: 'createfixingreport',
-    component: () => import( '../views/proprietorViews/ReportRepair/CreateFixingReport.vue')
+    component: () => import( '../views/proprietorViews/reportRepair/CreateFixingReport.vue')
   },{
     path: '/proprietorhome/checkfixingreport',
     name: 'checkfixingreport',
-    component: () => import( '../views/proprietorViews/ReportRepair/CheckFixingReport.vue')
+    component: () => import( '../views/proprietorViews/reportRepair/CheckFixingReport.vue')
+  },{
+    path: '/proprietorhome/createExpressDelivery',
+    name: 'createexpressdelivery',
+    component: () => import( '../views/proprietorViews/quarantineAssistant/EntrustExpressDelivery.vue')
   }
 ]
 
