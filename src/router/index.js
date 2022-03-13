@@ -63,9 +63,13 @@ const routes = [
     name: 'checkfixingreport',
     component: () => import( '../views/proprietorViews/reportRepair/CheckFixingReport.vue')
   },{
-    path: '/proprietorhome/createExpressDelivery',
+    path: '/proprietorhome/createexpressdelivery',
     name: 'createexpressdelivery',
     component: () => import( '../views/proprietorViews/quarantineAssistant/EntrustExpressDelivery.vue')
+  },{
+    path: '/proprietorhome/trackexpressdelivery',
+    name: 'trackexpressdelivery',
+    component: () => import( '../views/proprietorViews/quarantineAssistant/TrackExpressDelivery.vue')
   }
 ]
 

@@ -13,3 +13,8 @@ export function entrustExpressDeliveryForProprietor(data){
 export function EditDeliveryInfo(data){
     return request.post('pms/expressdelivery/propertyadddeliveryserviceman', data)
 }
+
+export function TrackDeliveryInfoProprietor(data){
+    return request.post('pms/expressdelivery/proprietortrackdelivery', data)
+}
+

@@ -6,7 +6,7 @@
     </div>
     <div id="headerRight">
       <el-button type="primary" @click="logout" style="margin-right: 10px">退出</el-button>
-      <router-link to="/about">
+      <router-link to="/">
         <el-button type="primary" style="margin-right: 5px">关于</el-button>
       </router-link>
     </div>

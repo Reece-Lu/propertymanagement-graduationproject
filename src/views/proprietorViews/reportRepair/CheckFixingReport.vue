@@ -69,7 +69,6 @@ export default {
     checkFixingReportList(this.reporterId).then(res=>{
       this.fixingReportList=res
       console.log(this.fixingReportList)
-
     })
   },
   methods:{
