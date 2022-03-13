@@ -8,7 +8,8 @@
     </van-cell-group>
 
     <van-cell-group inset title="隔离助手">
-      <van-cell title="快递代领" is-link to="/proprietorhome/createExpressDelivery"/>
+      <van-cell title="快递代领" is-link to="/proprietorhome/createexpressdelivery"/>
+      <van-cell title="历史查询" is-link to="/proprietorhome/trackexpressdelivery"/>
     </van-cell-group>
 
   </div>
