@@ -23,6 +23,11 @@ const routes = [
         name: 'PropertyExpressDelivery',
         component: () => import( '../views/adminViews/PropertyExpressDelivery.vue')
       },
+      {
+        path:'/proprietorarchives',
+        name: 'ProprietorArchives',
+        component: () => import( '../views/adminViews/ProprietorArchives.vue')
+      },
     ]
   },
   {

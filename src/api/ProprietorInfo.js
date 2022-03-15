@@ -7,6 +7,9 @@ export function getProprietorInfo(data){
 
 
 export function changeProprietorInfo(data){
-    return request.post('/pms/proprietorinfo/changeInfo', data)
+    return request.post('/pms/proprietorinfo/changeproprietorinfo', data)
 }
 
+export function propertysearchproprietorinfo(data){
+    return request.post('/pms/proprietorinfo/propertysearchproprietorinfo', data)
+}

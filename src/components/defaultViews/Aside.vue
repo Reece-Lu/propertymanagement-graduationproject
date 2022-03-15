@@ -36,9 +36,13 @@
     <el-menu-item index="6"  disabled>
       <span slot="title"><i class="el-icon-present"></i> 装修登记</span>
     </el-menu-item>
-    <el-menu-item index="7" disabled>
-      <span slot="title"><span class="iconfont icon-record-full"></span>业主档案</span>
-    </el-menu-item>
+
+    <router-link to="/proprietorarchives">
+      <el-menu-item index="7" >
+        <span slot="title"><span class="iconfont icon-record-full"></span>业主档案</span>
+      </el-menu-item>
+    </router-link>
+
 
   </el-menu>
 </template>
