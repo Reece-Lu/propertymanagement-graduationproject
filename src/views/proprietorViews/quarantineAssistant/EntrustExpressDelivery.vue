@@ -71,7 +71,6 @@ export default {
   created() {
     //默认值赋值，并展示
     this.proprietor=JSON.parse(localStorage.getItem('user'))
-    console.log("localStorage:"+this.proprietor)
     this.reportForm.proprietorId=this.proprietor.id
     this.name=this.proprietor.name
     this.proprietorPhone=this.proprietor.phone

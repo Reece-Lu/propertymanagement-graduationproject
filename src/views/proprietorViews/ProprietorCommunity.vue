@@ -12,6 +12,10 @@
       <van-cell title="历史查询" is-link to="/proprietorhome/trackexpressdelivery"/>
     </van-cell-group>
 
+    <van-cell-group inset title="我的宠物">
+      <van-cell title="登记宠物" is-link to="/proprietorhome/registerpet"/>
+    </van-cell-group>
+
   </div>
 
 </template>

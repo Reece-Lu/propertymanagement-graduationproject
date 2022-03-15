@@ -48,6 +48,8 @@ export default {
         userName:'',
         password:''
       },
+      userId:'',
+      Name:"",
       //数据过滤，要求用户输入合法的数据
       rules: {
         userName: [
@@ -85,7 +87,14 @@ export default {
          // console.log(res)
          //释放路由守卫
          localStorage.setItem('isLogin','1');
+         //存储身份 《方案一》
          localStorage.setItem('user',JSON.stringify(res));
+         //存储身份 《方案二》
+         this.userId=res.id
+         this.Name=res.name
+         console.log(this.userId+"from login")
+         this.$store.commit("setUserId",this.userId)
+         this.$store.commit("setName", this.Name)
          this.$router.push('/proprietormine')
          this.$notify({ type: 'success', message: '登陆成功，Welcome！' });
        }).catch(()=>{

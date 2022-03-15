@@ -75,6 +75,10 @@ const routes = [
     path: '/proprietorhome/trackexpressdelivery',
     name: 'trackexpressdelivery',
     component: () => import( '../views/proprietorViews/quarantineAssistant/TrackExpressDelivery.vue')
+  },{
+    path: '/proprietorhome/registerpet',
+    name: 'registerpet',
+    component: () => import( '../views/proprietorViews/pet/RegisterPet.vue')
   }
 ]
 
