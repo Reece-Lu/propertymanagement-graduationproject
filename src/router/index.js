@@ -28,6 +28,11 @@ const routes = [
         name: 'ProprietorArchives',
         component: () => import( '../views/adminViews/ProprietorArchives.vue')
       },
+      {
+        path:'/propertysearchpet',
+        name: 'PropertySearchPet',
+        component: () => import( '../views/adminViews/PropertySearchPet.vue')
+      },
     ]
   },
   {

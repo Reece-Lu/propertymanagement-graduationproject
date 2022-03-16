@@ -10,7 +10,7 @@
     <van-form  style="margin-top: 3vh" @submit="onSubmit">
       <van-cell-group inset>
         <van-field v-model="master" name="master" label="主人"/>
-        <van-field v-model="registerForm.name" name="name" label="宠物姓名"/>
+        <van-field v-model="registerForm.petName" name="name" label="宠物姓名"/>
         <van-field v-model="registerForm.age" name="age" label="年龄"/>
         <van-field v-model="registerForm.species" name="species" label="品种"/>
       </van-cell-group>
@@ -31,7 +31,7 @@ export default {
     return{
       registerForm:{
         masterId:"",
-        name:"",
+        petName:"",
         age:"",
         createDate:"",
         species:""
