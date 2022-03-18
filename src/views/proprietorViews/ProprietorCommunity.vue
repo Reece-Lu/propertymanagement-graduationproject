@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100vh">
     <van-nav-bar title="我的社区"/>
 
     <van-cell-group inset title="报修维修">
