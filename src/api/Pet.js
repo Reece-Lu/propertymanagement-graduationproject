@@ -12,3 +12,7 @@ export function PropertySearchPet(data){
 export function ProprietorSearchPet(data){
     return request.post('/pms/pet/proprietorsearchpet', data)
 }
+
+export function ProprietorChangePetInfo(data){
+    return request.post('/pms/pet/proprietorsetpet', data)
+}

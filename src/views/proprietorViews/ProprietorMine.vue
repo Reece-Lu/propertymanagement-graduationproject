@@ -43,7 +43,7 @@
             <van-col span="12"><van-tag round type="success">{{data.species}}</van-tag></van-col>
           </van-row>
         </van-cell>
-        <van-button plain hairline type="info" size="mini" style="width: 10vh;margin-left: calc(50% - 5vh); padding:1vh">修改</van-button>
+        <van-button plain hairline type="info" size="mini" style="width: 10vh;margin-left: calc(50% - 5vh); padding:1vh" @click="openChangePetInfoForm(data)">修改</van-button>
       </van-collapse-item>
     </van-collapse>
   </van-cell-group>
@@ -171,6 +171,35 @@
     </van-cell-group>
   </van-dialog>
 
+<!-- 修改宠物信息弹出层 -->
+  <van-popup v-model="changePetInfoShow" round position="bottom" :style="{ height: '70%' }">
+    <div style="height: 10vh"/>
+    <van-form @submit="changePetInfoOnSubmit">
+      <van-field
+          v-model="changePetInfoForm.petName"
+          name="宠物姓名"
+          label="宠物姓名"
+          placeholder="输入姓名"
+      />
+      <van-field
+          v-model="changePetInfoForm.age"
+          name="宠物年龄"
+          label="宠物年龄"
+          placeholder="输入年龄"
+      />
+      <van-field
+          v-model="changePetInfoForm.species"
+          name="宠物品种"
+          label="宠物品种"
+          placeholder="输入品种"
+      />
+      <div style="margin: 10vh;">
+        <van-button round block type="info" native-type="submit">提交</van-button>
+      </div>
+    </van-form>
+
+  </van-popup>
+
 
 <div style="height:20vh"></div>
 </div>
@@ -178,7 +207,7 @@
 
 <script>
 import {changeProprietorInfo, getProprietorInfo} from "@/api/ProprietorInfo";
-import {ProprietorSearchPet} from "@/api/Pet";
+import {ProprietorChangePetInfo, ProprietorSearchPet} from "@/api/Pet";
 
 export default {
   name: "ProprietorMine",
@@ -194,6 +223,7 @@ export default {
       changeDoorShow:false,
       changeBuildingShow:false,
       changeRoleInFamilyShow:false,
+      changePetInfoShow:false,
       activeName: '1',
       proprietor:[{
         name:'',
@@ -219,6 +249,13 @@ export default {
         attribute:'',
         value:''
       },
+      changePetInfoForm:{
+        id:'',
+        petName:"",
+        age:'',
+        createDate:"",
+        species:"",
+      },
       newName:'',
     }
   },
@@ -243,6 +280,7 @@ export default {
       ProprietorSearchPet(this.proprietor.id).then(res=>{
         this.petTable=res
       })
+
 
     },
     //修改个人信息上滑弹窗
@@ -346,6 +384,17 @@ export default {
         this.load()
       },500);
     },
+    //展示修改宠物信息框
+    openChangePetInfoForm(data){
+      this.changePetInfoForm=data
+      this.changePetInfoShow=true
+    },
+    changePetInfoOnSubmit(){
+      ProprietorChangePetInfo(this.changePetInfoForm).then(res=>{
+        console.log(res)
+        this.changePetInfoShow = false;
+      })
+    }
 
   }
 }
