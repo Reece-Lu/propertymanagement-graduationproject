@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="background: rgb(244, 244, 245); height: 100vh">
+    <div style="background: rgb(244, 244, 245);">
       <router-view/>
     </div>
     <van-tabbar fixed v-model="active" safe-area-inset-bottom>

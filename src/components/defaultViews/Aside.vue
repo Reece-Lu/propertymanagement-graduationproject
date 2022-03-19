@@ -26,9 +26,12 @@
         <el-menu-item index="3-2" disabled>隔离后勤</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
-    <el-menu-item index="4"  disabled>
-      <span slot="title"><span class="iconfont icon-xiedaichongwu"></span>宠物寄养</span>
-    </el-menu-item>
+
+    <router-link to="/propertysearchpet">
+      <el-menu-item index="4">
+        <span slot="title"><span class="iconfont icon-xiedaichongwu"></span>宠物管理</span>
+      </el-menu-item>
+    </router-link>
 
     <el-menu-item index="5"  disabled>
       <span slot="title"><span class="iconfont icon-cheliang"></span>车位管理</span>
