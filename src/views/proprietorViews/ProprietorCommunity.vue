@@ -16,6 +16,10 @@
       <van-cell title="登记宠物" is-link to="/proprietorhome/registerpet"/>
     </van-cell-group>
 
+    <van-cell-group inset title="我的车辆">
+      <van-cell title="登记车辆" is-link to="/proprietorhome/proprietorregistercar"/>
+    </van-cell-group>
+
   </div>
 
 </template>

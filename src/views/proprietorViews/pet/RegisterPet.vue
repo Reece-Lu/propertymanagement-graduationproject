@@ -67,8 +67,6 @@ export default {
     },
     onSubmit() {
       ProprietorRegisterPet(this.registerForm).then(()=>{
-
-
         this.timer = setTimeout(()=>{   //设置延迟执行
           this.$router.push('/proprietorcommunity')
         },1000);
