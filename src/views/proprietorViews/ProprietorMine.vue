@@ -25,8 +25,8 @@
     <van-cell title="微信号:">{{proprietor.weChat}}</van-cell>
     <van-cell title="邮箱:">{{proprietor.email}}</van-cell>
     <van-cell title="家庭身份:">{{proprietor.roleInFamily}}</van-cell>
-    <van-cell title="车位号:">{{proprietor.id}}</van-cell>
-    <van-cell title="车牌号:">{{proprietor.id}}</van-cell>
+    <van-cell title="车位号:">{{licensePlate}}</van-cell>
+    <van-cell title="车牌号:">{{parkingSpace}}</van-cell>
 
   </van-cell-group>
 
@@ -50,6 +50,7 @@
 
   <van-cell-group inset title="设置">
     <van-cell  title="修改个人信息信息" is-link @click="showFormUp"/>
+    <van-cell title="修改车辆信息" is-link @click="toChangeCarInfo"/>
     <van-cell title="登出" is-link @click="logout"/>
   </van-cell-group>
 
@@ -170,7 +171,6 @@
       </van-form>
     </van-cell-group>
   </van-dialog>
-
 <!-- 修改宠物信息弹出层 -->
   <van-popup v-model="changePetInfoShow" round position="bottom" :style="{ height: '70%' }">
     <div style="height: 10vh"/>
@@ -208,6 +208,7 @@
 <script>
 import {changeProprietorInfo, getProprietorInfo} from "@/api/ProprietorInfo";
 import {ProprietorChangePetInfo, ProprietorSearchPet} from "@/api/Pet";
+import {proprietorSearchCar} from "@/api/Car";
 
 export default {
   name: "ProprietorMine",
@@ -257,6 +258,8 @@ export default {
         species:"",
       },
       newName:'',
+      licensePlate:"",
+      parkingSpace:""
     }
   },
   created() {
@@ -279,6 +282,12 @@ export default {
       })
       ProprietorSearchPet(this.proprietor.id).then(res=>{
         this.petTable=res
+      })
+      proprietorSearchCar(this.proprietor.id).then(res=>{
+        for(let i = 0 ;i<res.length;i++){
+          this.licensePlate = this.licensePlate + " " + res[i].licensePlate
+          this.parkingSpace = this.parkingSpace + " " + res[i].parkingSpace
+        }
       })
 
 
@@ -394,6 +403,9 @@ export default {
         console.log(res)
         this.changePetInfoShow = false;
       })
+    },
+    toChangeCarInfo(){
+      this.$router.push("/proprietorhome/proprietorchangecarinfo")
     }
 
   }

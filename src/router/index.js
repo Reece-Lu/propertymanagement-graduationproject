@@ -88,6 +88,10 @@ const routes = [
     path: '/proprietorhome/proprietorregistercar',
     name: 'proprietorregistercar',
     component: () => import( '../views/proprietorViews/car/ProprietorRegisterCar.vue')
+  },{
+    path: '/proprietorhome/proprietorchangecarinfo',
+    name: 'proprietorchangecarinfo',
+    component: () => import( '../views/proprietorViews/car/ProprietorChangeCarInfo.vue')
   }
 ]
 

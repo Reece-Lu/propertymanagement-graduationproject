@@ -4,3 +4,7 @@ import request from "@/utils/request";
 export function proprietorRegisterCar(data){
     return request.post('pms/car/proprietyregistercar', data)
 }
+
+export function proprietorSearchCar(data){
+    return request.post('pms/car/proprietysearchcar', data)
+}
