@@ -1,35 +1,34 @@
 <template>
-<div>
+  <div>
+
+
   <!--搜索框-->
   <div style="width: 800px;float: left;margin-bottom: 10px">
-    <el-input v-model="searchDTO.name" style="width: 200px" placeholder="请输入业主姓名"></el-input>
+    <el-input v-model="searchDTO.name" style="width: 200px" placeholder="请输入宠物主人姓名"></el-input>
+    <el-input v-model="searchDTO.phone" style="width: 200px; margin-left: 20px" placeholder="请输入宠物主人电话"></el-input>
     <el-button type="primary" style="width: 100px;margin-left: 50px" @click="load">搜索</el-button>
   </div>
   <!--主显示表-->
   <div id="reportRepairTable">
     <el-table
-        :data="proprietorTableData"
+        :data="tableData"
         border
         height="70vh"
         ref="multipleTable"
         tooltip-effect="dark"
-        style="width: 100%;"
+        style="width: 80%;"
         size="mini"
     >
       <el-table-column type="selection" width="39" ></el-table-column>
       <el-table-column prop="id" label="ID" align="center" width="60"></el-table-column>
-      <el-table-column prop="userName" label="业主账号名" align="center" width="100"></el-table-column>
       <el-table-column prop="name" label="业主姓名" align="center" width="80"></el-table-column>
       <el-table-column prop="title" label="称呼" align="center" width="80"></el-table-column>
       <el-table-column prop="phone" label="电话" align="center" width="150"></el-table-column>
-      <el-table-column prop="email" label="邮件" align="center" width="150"></el-table-column>
-      <el-table-column prop="weChat" label="微信" align="center" width="150"></el-table-column>
-      <el-table-column prop="building" label="楼号" align="center" width="150"></el-table-column>
-      <el-table-column prop="door" label="门牌号" align="center" width="100"></el-table-column>
-      <el-table-column prop="roleInFamily" label="家庭角色" align="center" width="100"></el-table-column>
+      <el-table-column prop="licensePlate" label="车牌号" align="center" width="150"></el-table-column>
+      <el-table-column prop="parkingSpace" label="车位" align="center" width="150"></el-table-column>
+      <el-table-column prop="colour" label="颜色" align="center" width="100"></el-table-column>
     </el-table>
   </div>
-
 
   <div style="text-align: center;margin-top: 30px;">
     <el-pagination
@@ -44,35 +43,32 @@
     >
     </el-pagination>
   </div>
-</div>
+  </div>
 </template>
 
 <script>
-import {propertysearchproprietorinfo} from "@/api/ProprietorInfo";
+import {propertySearchCar} from "@/api/Car";
 
 export default {
-  name: "ProprietorArchives",
+  name: "PropertyCar",
   data(){
     return{
       searchDTO:{
         name:"",
-        pageNum: 1,
-        pageSize: 13,
-      },
-      proprietorTableData:[{
-        id:'',
-        userName:"",
-        password:"",
-        name:"",
-        title:"",
         phone:"",
-        email:"",
-        weChat:"",
-        building:"",
-        door:"",
-        roleInFamily:""
+        pageNum: 1,
+        pageSize: 13
+      },
+      tableData:[{
+        id: '',
+        name: "",
+        title: "",
+        phone: "",
+        licensePlate: "",
+        parkingSpace: '',
+        colour: "",
       }],
-      total:0
+      total:0,
     }
   },
   created() {
@@ -80,9 +76,9 @@ export default {
   },
   methods:{
     load(){
-      propertysearchproprietorinfo(this.searchDTO).then(res=>{
+      propertySearchCar(this.searchDTO).then(res=>{
         console.log(res)
-        this.proprietorTableData=res.tableData
+        this.tableData=res.tableData
         this.total=res.total
       })
     },

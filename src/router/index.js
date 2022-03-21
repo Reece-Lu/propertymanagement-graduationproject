@@ -33,6 +33,11 @@ const routes = [
         name: 'PropertySearchPet',
         component: () => import( '../views/adminViews/PropertySearchPet.vue')
       },
+      {
+        path:'/propertycar',
+        name: 'Propertycar',
+        component: () => import( '../views/adminViews/PropertyCar.vue')
+      },
     ]
   },
   {
@@ -84,6 +89,14 @@ const routes = [
     path: '/proprietorhome/registerpet',
     name: 'registerpet',
     component: () => import( '../views/proprietorViews/pet/RegisterPet.vue')
+  },{
+    path: '/proprietorhome/proprietorregistercar',
+    name: 'proprietorregistercar',
+    component: () => import( '../views/proprietorViews/car/ProprietorRegisterCar.vue')
+  },{
+    path: '/proprietorhome/proprietorchangecarinfo',
+    name: 'proprietorchangecarinfo',
+    component: () => import( '../views/proprietorViews/car/ProprietorChangeCarInfo.vue')
   }
 ]
 
