@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
     />
+<!--  业主车辆展示  -->
     <van-cell-group title="我的车辆" style="background: rgb(244, 244, 245)">
       <van-cell-group inset v-for="data in carListData" :key="data.id" style="margin-top:1vh">
         <van-cell center  size="large">
@@ -23,30 +24,59 @@
             <van-col span="12">{{data.colour}}</van-col>
           </van-row>
 
-          <van-button plain hairline type="info" size="mini" style="width: 10vh;margin-left: calc(50% - 5vh); padding:1vh">修改</van-button>
+          <van-button plain hairline type="info" size="mini" style="width: 10vh;margin-left: calc(50% - 5vh); padding:1vh" @click="changeDataFromShow(data)">修改</van-button>
 
         </van-cell>
 
       </van-cell-group>
     </van-cell-group>
 
-
+    <van-popup v-model="changeCarInfoFormShow" round position="bottom"  closeable :style="{ height: '60%' }">
+      <div style="height:10%"/>
+        <van-field
+            v-model="changeFormData.licensePlate"
+            name="车牌号"
+            label="车牌号 :"
+        />
+        <van-field
+            v-model="changeFormData.parkingSpace"
+            name="车位"
+            label="车位 :"
+        />
+      <van-field
+          v-model="changeFormData.colour"
+          name="颜色"
+          label="颜色 :"
+      />
+        <div style="margin: 16px;">
+          <van-button round block type="info" native-type="submit" @click="submitChangedInfo">提交</van-button>
+        </div>
+    </van-popup>
 
   </div>
 </template>
 
 <script>
-import {proprietorSearchCar} from "@/api/Car";
+import {proprietorChangeCarInfo, proprietorSearchCar} from "@/api/Car";
+import {Notify} from "vant";
 
 export default {
   name: "ProprietorChangeCarInfo",
   data(){
     return{
     carListData:[{
+      id:"",
       licensePlate:"",
       parkingSpace:"",
       colour:""
-    }]
+    }],
+      changeFormData:{
+        id:"",
+        licensePlate:"",
+        parkingSpace:"",
+        colour:""
+      },
+      changeCarInfoFormShow:false,
     }
   },
   created() {
@@ -60,6 +90,16 @@ export default {
       this.proprietor=JSON.parse(localStorage.getItem('user'))
       proprietorSearchCar(this.proprietor.id).then(res=>{
           this.carListData=res
+      })
+    },
+    changeDataFromShow(data){
+      this.changeFormData=data
+      this.changeCarInfoFormShow = true
+    },
+    submitChangedInfo(){
+      proprietorChangeCarInfo(this.changeFormData).then(()=>{
+        Notify({ type: 'success', message: '修改成功' });
+        this.changeCarInfoFormShow = false
       })
     }
   }
