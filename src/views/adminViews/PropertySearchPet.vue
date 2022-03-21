@@ -20,8 +20,8 @@
       <el-table-column type="selection" width="39" ></el-table-column>
       <el-table-column prop="id" label="ID" align="center" width="60"></el-table-column>
       <el-table-column prop="name" label="业主姓名" align="center" width="100"></el-table-column>
-      <el-table-column prop="title" label="称呼" align="center" width="50"></el-table-column>
-      <el-table-column prop="phone" label="电话" align="center" width="120"></el-table-column>
+      <el-table-column prop="title" label="称呼" align="center" width="80"></el-table-column>
+      <el-table-column prop="phone" label="电话" align="center" width="150"></el-table-column>
       <el-table-column prop="petName" label="宠物姓名" align="center" width="100"></el-table-column>
       <el-table-column prop="age" label="年龄" align="center" width="80"></el-table-column>
       <el-table-column prop="species" label="品种" align="center" width="100"></el-table-column>

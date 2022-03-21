@@ -15,3 +15,8 @@ export function proprietorSearchCar(data){
 export function proprietorChangeCarInfo(data){
     return request.post('/pms/car/proprietychangecarinfo', data)
 }
+
+/*物业·查询车辆信息*/
+export function propertySearchCar(data){
+    return request.post('/pms/car/propertysearchcar', data)
+}

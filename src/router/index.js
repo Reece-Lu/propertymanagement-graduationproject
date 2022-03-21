@@ -33,6 +33,11 @@ const routes = [
         name: 'PropertySearchPet',
         component: () => import( '../views/adminViews/PropertySearchPet.vue')
       },
+      {
+        path:'/propertycar',
+        name: 'Propertycar',
+        component: () => import( '../views/adminViews/PropertyCar.vue')
+      },
     ]
   },
   {
