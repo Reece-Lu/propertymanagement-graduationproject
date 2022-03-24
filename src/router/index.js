@@ -97,6 +97,10 @@ const routes = [
     path: '/proprietorhome/proprietorchangecarinfo',
     name: 'proprietorchangecarinfo',
     component: () => import( '../views/proprietorViews/car/ProprietorChangeCarInfo.vue')
+  },{
+    path: '/proprietorhome/proprietorregisterdecoration',
+    name: 'proprietorregisterdecoration',
+    component: () => import( '../views/proprietorViews/decoration/ProprietorRegisterDecoration.vue')
   }
 ]
 
