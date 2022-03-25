@@ -39,9 +39,12 @@
       </el-menu-item>
     </router-link>
 
-    <el-menu-item index="6"  disabled>
-      <span slot="title"><i class="el-icon-present"></i>装修登记</span>
-    </el-menu-item>
+    <router-link to="/propertydecoration">
+      <el-menu-item index="6">
+        <span slot="title"><i class="el-icon-present"></i>装修登记</span>
+      </el-menu-item>
+    </router-link>
+
 
     <router-link to="/proprietorarchives">
       <el-menu-item index="7" >

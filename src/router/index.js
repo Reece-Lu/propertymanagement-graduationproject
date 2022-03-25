@@ -38,6 +38,11 @@ const routes = [
         name: 'Propertycar',
         component: () => import( '../views/adminViews/PropertyCar.vue')
       },
+      {
+        path:'/propertydecoration',
+        name: 'propertydecoration',
+        component: () => import( '../views/adminViews/PropertyDecoration.vue')
+      },
     ]
   },
   {
