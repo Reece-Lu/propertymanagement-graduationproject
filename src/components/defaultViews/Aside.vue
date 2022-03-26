@@ -8,10 +8,13 @@
       active-text-color="#ffd04b"
       style="height: 100%"
   >
-    <el-menu-item index="1" disabled>
-<!--      icon设置语句 <i class="el-icon-menu"></i>-->
-      <span slot="title"><i class="el-icon-message-solid"></i>小区广播</span>
-    </el-menu-item>
+    <router-link to="/propertybroadcast">
+      <el-menu-item index="1" >
+        <!--      icon设置语句 <i class="el-icon-menu"></i>-->
+        <span slot="title"><i class="el-icon-message-solid"></i>小区广播</span>
+      </el-menu-item>
+    </router-link>
+
     <router-link to="/reportandrepair">
       <el-menu-item index="2" >
         <span slot="title"><span class="iconfont icon-icongongju"></span> 报修维修</span>
