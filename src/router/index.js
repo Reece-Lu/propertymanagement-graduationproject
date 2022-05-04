@@ -115,6 +115,10 @@ const routes = [
     path: '/proprietorhome/proprietorregisterdecoration',
     name: 'proprietorregisterdecoration',
     component: () => import( '../views/proprietorViews/decoration/ProprietorRegisterDecoration.vue')
+  },{
+    path: '/ProprietorRegister',
+    name:'ProprietorRegister',
+    component: ()=> import('../views/proprietorViews/ProprietorRegister')
   }
 ]
 
@@ -126,7 +130,7 @@ const router = new VueRouter({
 //路由守卫函数，若beforeEach判断到未登陆，则跳转到Login页面
 router.beforeEach((to, from ,next) => {
   const { isLogin } = localStorage;
-  (isLogin === '1'|| to.name === "Login") ? next() : next({ name: 'Login'});
+  (isLogin === '1'|| to.name === "Login" || to.name === "ProprietorRegister") ? next() : next({ name: 'Login'});
 })
 
 
