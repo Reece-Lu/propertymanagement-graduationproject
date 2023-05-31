@@ -1,5 +1,6 @@
-# 后疫情时代智慧物业管理系统
-基于Vue2.X的前端项目，基于普通物业管理系统，有基本的业主档案统计与报修维修功能。面向疫情背景加入新的需求，有疫情防控和居家隔离帮助和管理，以及宠物寄养和挪车代驾等新需求。
+# Smart property management system in the post-epidemic era
+
+Based on Vue2. X's front-end project, based on the ordinary property management system, has basic owner file statistics and repair functions. New needs have been added to the background of the epidemic, including help and management of epidemic prevention and control and home isolation, as well as new needs such as pet foster care and car driving.
 ## Project setup
 ```
 npm install
