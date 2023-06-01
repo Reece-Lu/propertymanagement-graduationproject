@@ -1,3 +1,5 @@
+Link to the backend of this project: https://github.com/Reece-Lu/propertymanagement-graduationproject-server
+
 # Smart property management system in the post-epidemic era
 
 Based on Vue2. X's front-end project, based on the ordinary property management system, has basic owner file statistics and repair functions. New needs have been added to the background of the epidemic, including help and management of epidemic prevention and control and home isolation, as well as new needs such as pet foster care and car driving.
