@@ -1,16 +1,15 @@
 <template>
-<!--导航栏，作为Home页的子组件-->
+  <!--Navigation bar, as a sub-component of the Home page-->
   <div id="header">
     <div id="headerLeft">
-      后疫情时代物业管理系统
+      Residential Complex Management System
     </div>
     <div id="headerRight">
-      <el-button type="primary" @click="logout" style="margin-right: 10px">退出</el-button>
+      <el-button type="primary" @click="logout" style="margin-right: 10px">Logout</el-button>
       <router-link to="/">
-        <el-button type="primary" style="margin-right: 5px">关于</el-button>
+        <el-button type="primary" style="margin-right: 5px">About</el-button>
       </router-link>
     </div>
-
   </div>
 </template>
 
@@ -19,7 +18,7 @@ export default {
   name: "Header",
   methods:{
     logout(){
-      //返回登陆页，释放localStorage中的isLogin数据，激活路由守卫
+      // Return to login page, clear isLogin data from localStorage, and activate route guard
       this.$router.push('/login')
       localStorage.removeItem('isLogin');
       localStorage.removeItem('user');
@@ -35,6 +34,4 @@ export default {
 #headerRight{
   float: right;
 }
-
-
 </style>

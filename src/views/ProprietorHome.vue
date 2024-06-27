@@ -5,13 +5,13 @@
     </div>
     <van-tabbar fixed v-model="active" safe-area-inset-bottom>
       <router-link to="/proprietorbroadcast" style="width: 33%">
-        <van-tabbar-item icon="home-o" name="broadcast">小区广播</van-tabbar-item>
+        <van-tabbar-item icon="home-o" name="broadcast">Community Broadcast</van-tabbar-item>
       </router-link>
       <router-link to="/proprietorcommunity" style="width: 33%">
-        <van-tabbar-item icon="search" name="community">我的社区</van-tabbar-item>
+        <van-tabbar-item icon="search" name="community">My Community</van-tabbar-item>
       </router-link>
       <router-link to="/proprietormine" style="width: 33%">
-      <van-tabbar-item icon="friends-o" name="mine">我的</van-tabbar-item>
+        <van-tabbar-item icon="friends-o" name="mine">Mine</van-tabbar-item>
       </router-link>
     </van-tabbar>
   </div>
@@ -20,9 +20,9 @@
 <script>
 export default {
   name: "ProprietorHome",
-  data(){
-    return{
-      active:'mine'
+  data() {
+    return {
+      active: 'mine'
     }
   }
 }

@@ -9,7 +9,8 @@ const axios = $axios.create({
     widthCredentials: true, // 请求头 一般是 json 格式 如果某些单独的接口需要别的格式的话 例如 formData 格式的 单独处理
     headers: {
         "Content-Type": "application/json;charset=utf-8"
-    }
+    },
+    baseURL: 'https://www.meetyuwen.com/complex'
 })
 //axios请求拦截
 axios.interceptors.response.use(response => {

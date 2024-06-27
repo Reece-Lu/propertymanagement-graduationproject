@@ -1,18 +1,12 @@
 <template>
   <div class="about">
-    <h1 style="text-align: center">About Page for Property Management System</h1>
+    <h1 style="text-align: center">About Page for Residential Complex Management System</h1>
     <p style="text-align: center">
-      后台：http://82.156.219.134:1214/Reece_Lu/propertymanagement-graduationproject-server.git
-    </p>
-    <p style="text-align: center">
-      前台：http://82.156.219.134:1214/Reece_Lu/propertymanagement-graduationproject.git
-    </p>
-    <p style="text-align: center">
-      游客账号：guest 密码：Guest123
+      Visitor Account: guest Password: Guest123
     </p>
     <h1 style="text-align: center">Developed by Lu Yuwen</h1>
     <h2 style="text-align: center">Guided by Gao Yu, Liu Caihong</h2>
-    <h1 style="text-align: center">万丈高楼平地起</h1>
+    <h1 style="text-align: center">A skyscraper starts from the ground</h1>
   </div>
 </template>
 
