@@ -43,6 +43,15 @@ const routes = [
         name: 'propertydecoration',
         component: () => import( '../views/adminViews/PropertyDecoration.vue')
       },
+      {
+        path:'/propertybroadcast',
+        name: 'propertybroadcast',
+        component: () => import( '../views/adminViews/PropertyBroadcast.vue')
+      },
+
+
+
+
     ]
   },
   {

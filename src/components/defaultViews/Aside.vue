@@ -8,6 +8,12 @@
       active-text-color="#ffd04b"
       style="height: 100%"
   >
+    <router-link to="/propertybroadcast">
+      <el-menu-item index="1" >
+        <span slot="title"><i class="el-icon-message-solid"></i>Community Broadcast</span>
+      </el-menu-item>
+    </router-link>
+
     <el-menu-item index="1" disabled>
       <span slot="title"><i class="el-icon-message-solid"></i>Community Broadcast</span>
     </el-menu-item>
