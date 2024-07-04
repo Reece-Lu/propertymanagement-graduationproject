@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {

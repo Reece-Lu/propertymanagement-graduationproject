@@ -13,10 +13,6 @@
         <span slot="title"><i class="el-icon-message-solid"></i>Community Broadcast</span>
       </el-menu-item>
     </router-link>
-
-    <el-menu-item index="1" disabled>
-      <span slot="title"><i class="el-icon-message-solid"></i>Community Broadcast</span>
-    </el-menu-item>
     <router-link to="/reportandrepair">
       <el-menu-item index="2" >
         <span slot="title"><span class="iconfont icon-icongongju"></span> Report and Repair</span>

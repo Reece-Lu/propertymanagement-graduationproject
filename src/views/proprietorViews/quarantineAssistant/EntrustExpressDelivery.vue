@@ -1,89 +1,84 @@
 <template>
-  <div style=" background-color: rgb(244, 244, 245); height: 100vh;">
+  <div style="background-color: rgb(244, 244, 245); height: 100vh;">
     <van-nav-bar
-        title="快递代领"
-        left-text="返回"
+        title="Express Pickup"
+        left-text="Back"
         left-arrow
         @click-left="onClickLeft"
     />
-    <!-- 快递代领申请 -->
-    <van-form  style="margin-top: 3vh" @submit="onSubmit">
+    <!-- Express Pickup Application -->
+    <van-form style="margin-top: 3vh" @submit="onSubmit">
       <van-cell-group inset>
-        <van-field v-model="name" name="name" label="填报人"/>
-        <van-field v-model="proprietorPhone" name="proprietorPhone" label="电话"/>
-        <van-field v-model="reportForm.deliveryType" name="deliveryType" label="快递类型"/>
-        <van-field readonly clickable name="repairType" :value="reportForm.deliveryLocation" label="存放地点" placeholder="点击选择快递存放地点" @click="showDeliveryLocationPicker = true"/>
-        <van-field v-model="reportForm.deliveryCode" name="deliveryCode" label="取件码"/>
-        <van-field v-model="reportForm.createDate" name="reportTime" label="填报时间"/>
-
-
+        <van-field v-model="name" name="name" label="Reporter"/>
+        <van-field v-model="proprietorPhone" name="proprietorPhone" label="Phone"/>
+        <van-field v-model="reportForm.deliveryType" name="deliveryType" label="Delivery Type"/>
+        <van-field readonly clickable name="repairType" :value="reportForm.deliveryLocation" label="Storage Location" placeholder="Click to select storage location" @click="showDeliveryLocationPicker = true"/>
+        <van-field v-model="reportForm.deliveryCode" name="deliveryCode" label="Pickup Code"/>
+        <van-field v-model="reportForm.createDate" name="reportTime" label="Report Time"/>
       </van-cell-group>
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">提交</van-button>
+        <van-button round block type="info" native-type="submit">Submit</van-button>
       </div>
     </van-form>
 
-    <!--选择维修属性弹窗-->
+    <!-- Select Storage Location Popup -->
     <van-popup v-model="showDeliveryLocationPicker" position="bottom">
       <van-picker show-toolbar :columns="columns" @confirm="onConfirm" @cancel="showDeliveryLocationPicker = false"/>
     </van-popup>
-
-
   </div>
-
 </template>
 
 <script>
-import {entrustExpressDeliveryForProprietor} from "@/api/ExpressDelivery";
+import { entrustExpressDeliveryForProprietor } from "@/api/ExpressDelivery";
 
 export default {
   name: "ExpressDelivery",
-  data(){
-    return{
-      reportForm:{
-        proprietorId:'',
-        deliveryType:"",
-        deliveryLocation:"",
-        deliveryCode:"",
-        createDate:"",
-        status:""
+  data() {
+    return {
+      reportForm: {
+        proprietorId: '',
+        deliveryType: "",
+        deliveryLocation: "",
+        deliveryCode: "",
+        createDate: "",
+        status: ""
       },
-      proprietor:[{
-        id:'',
-        name:'',
-        title:'',
-        phone:'',
-        email:'',
-        weChat:'',
-        building:'',
-        door:'',
-        roleInFamily:''
+      proprietor: [{
+        id: '',
+        name: '',
+        title: '',
+        phone: '',
+        email: '',
+        weChat: '',
+        building: '',
+        door: '',
+        roleInFamily: ''
       }],
-      name:"",
+      name: "",
       timer: null,
       nowDate: '',
       nowTime: '',
-      proprietorPhone:'',
-      showDeliveryLocationPicker:false,
-      columns: ['丰巢柜', '菜鸟驿站', '门卫', '小区超市', '近领宝'],
+      proprietorPhone: '',
+      showDeliveryLocationPicker: false,
+      columns: ['Fengchao Cabinet', 'Cainiao Station', 'Gatekeeper', 'Community Supermarket', 'Jinlingbao'],
     }
   },
   created() {
-    //默认值赋值，并展示
-    this.proprietor=JSON.parse(localStorage.getItem('user'))
-    this.reportForm.proprietorId=this.proprietor.id
-    this.name=this.proprietor.name
-    this.proprietorPhone=this.proprietor.phone
+    // Assign default values and display
+    this.proprietor = JSON.parse(localStorage.getItem('user'))
+    this.reportForm.proprietorId = this.proprietor.id
+    this.name = this.proprietor.name
+    this.proprietorPhone = this.proprietor.phone
     this.setNowTimes()
-    this.reportForm.createDate=this.nowDate+" "+this.nowTime
-    this.reportForm.status="待派发取件任务"
+    this.reportForm.createDate = this.nowDate + " " + this.nowTime
+    this.reportForm.status = "Pending Pickup Task Assignment"
   },
-  methods:{
-    onClickLeft(){
+  methods: {
+    onClickLeft() {
       this.$router.push('/proprietorcommunity')
     },
-    setNowTimes () {
-      //获取当前时间，存入ReportTime
+    setNowTimes() {
+      // Get the current time and store it in ReportTime
       let myDate = new Date()
       let yy = String(myDate.getFullYear())
       let mm = myDate.getMonth() + 1
@@ -99,15 +94,14 @@ export default {
       this.showDeliveryLocationPicker = false;
     },
     onSubmit() {
-      entrustExpressDeliveryForProprietor(this.reportForm).then(()=>{
-         this.$notify({ type: 'success', message: '提交成功' });
+      entrustExpressDeliveryForProprietor(this.reportForm).then(() => {
+        this.$notify({ type: 'success', message: 'Submission Successful' });
 
-        this.timer = setTimeout(()=>{   //设置延迟执行
+        this.timer = setTimeout(() => {   // Set delayed execution
           this.$router.push('/proprietorcommunity')
-        },1000);
+        }, 1000);
       })
     },
-
   }
 }
 </script>
