@@ -1,5 +1,9 @@
 <template>
   <div class="login-container">
+    <div class="message-bar">
+      <p>Proprietor Test Account: {reece, 12345}</p>
+      <p>Property Management Test Account: {sam, 12345}</p>
+    </div>
     <div class="emptyBox"></div>
     <el-form status-icon label-position="left"
              label-width="0px"
@@ -35,19 +39,19 @@
 </template>
 
 <script>
-import { loginForPropertyManagement, loginForProprietor} from "@/api/Login";
+import { loginForPropertyManagement, loginForProprietor } from "@/api/Login";
 
 export default {
   name: 'Login',
-  data(){
-    return{
-      roleChoice:'1',
+  data() {
+    return {
+      roleChoice: '1',
       user: {
-        userName:'',
-        password:''
+        userName: '',
+        password: ''
       },
-      userId:'',
-      Name:"",
+      userId: '',
+      Name: "",
       // 数据过滤，要求用户输入合法的数据
       rules: {
         userName: [
@@ -69,22 +73,22 @@ export default {
   methods: {
     handleLogin() {
       // roleChoice为2，物业身份登陆页
-      if(this.roleChoice === '2'){
-        loginForPropertyManagement(this.user).then(res=>{
+      if (this.roleChoice === '2') {
+        loginForPropertyManagement(this.user).then(res => {
           // 释放路由守卫
-          localStorage.setItem('isLogin','1');
-          localStorage.setItem('user',JSON.stringify(res));
+          localStorage.setItem('isLogin', '1');
+          localStorage.setItem('user', JSON.stringify(res));
           this.$router.push('/propertymanagementhome')
-        }).catch(()=>{
+        }).catch(() => {
           this.$message.error("Login failed")
         })
       } else {
         // roleChoice为1，业主身份登陆页
-        loginForProprietor(this.user).then(res=>{
+        loginForProprietor(this.user).then(res => {
           // 释放路由守卫
-          localStorage.setItem('isLogin','1');
+          localStorage.setItem('isLogin', '1');
           // 存储身份 《方案一》
-          localStorage.setItem('user',JSON.stringify(res));
+          localStorage.setItem('user', JSON.stringify(res));
           // 存储身份 《方案二》
           this.userId = res.id
           this.Name = res.name
@@ -93,7 +97,7 @@ export default {
           this.$store.commit("setName", this.Name)
           this.$router.push('/proprietormine')
           this.$notify({ type: 'success', message: 'Login successful, Welcome!' });
-        }).catch(()=>{
+        }).catch(() => {
           this.$message.error("Login failed")
         })
       }
@@ -111,8 +115,16 @@ export default {
   position: absolute;
 }
 
+.message-bar {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
 .emptyBox {
-  height: 20%;
+  height: 10%;
   width: 100%;
 }
 

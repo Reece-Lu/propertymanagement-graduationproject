@@ -11,7 +11,6 @@ const routes = [
     path: '/propertymanagementhome',
     name: 'propertymanagementhome',
     component: Home,
-    //使用父子路由实现Home页的Header和Aside锁定在子页面中
     children:[
       {
         path:'/reportandrepair',
@@ -39,12 +38,12 @@ const routes = [
         component: () => import( '../views/adminViews/PropertyCar.vue')
       },
       {
-        path:'/propertydecoration',
+        path: '/propertydecoration',
         name: 'propertydecoration',
         component: () => import( '../views/adminViews/PropertyDecoration.vue')
       },
       {
-        path:'/propertybroadcast',
+        path: '/propertybroadcast',
         name: 'propertybroadcast',
         component: () => import( '../views/adminViews/PropertyBroadcast.vue')
       },
@@ -118,17 +117,15 @@ const routes = [
   }
 ]
 
-
-
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history',
+  base: '/residentialcomplex/'
 })
 //路由守卫函数，若beforeEach判断到未登陆，则跳转到Login页面
 router.beforeEach((to, from ,next) => {
   const { isLogin } = localStorage;
-  (isLogin === '1'|| to.name === "Login") ? next() : next({ name: 'Login'});
+  (isLogin === '1' || to.name === "Login") ? next() : next({ name: 'Login' });
 })
 
-
 export default router
-

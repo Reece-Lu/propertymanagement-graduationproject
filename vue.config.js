@@ -1,12 +1,12 @@
-// vue.config.js
 module.exports = {
+    publicPath: '/residentialcomplex/',
     devServer: {
         proxy: {
             '/pms': {
-                target: 'http://47.100.55.31:9090',
+                target: 'http://104.42.29.134:8080',
                 changeOrigin: true,
                 pathRewrite: {
-                    '/pms': '/pms'
+                    '^/pms': ''
                 }
             }
         }
